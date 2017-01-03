@@ -50,7 +50,11 @@ class Ranking extends CI_Controller
         }
         else
         {
-            $this->load->view('ranking/add');
+
+			$this->load->model('Juego_model');
+			$data['all_juego'] = $this->Juego_model->get_all_juego();
+                
+            $this->load->view('ranking/add',$data);
         }
     }  
 
@@ -89,6 +93,9 @@ class Ranking extends CI_Controller
             {   
                 $data['ranking'] = $this->Ranking_model->get_ranking($id);
     
+				$this->load->model('Juego_model');
+				$data['all_juego'] = $this->Juego_model->get_all_juego();
+
                 $this->load->view('ranking/edit',$data);
             }
         }

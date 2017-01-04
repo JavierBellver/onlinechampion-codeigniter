@@ -12,6 +12,7 @@
 
 <body class="Login">
     <div class="login-clean">
+        <p><?php echo validation_errors(); ?></p>
         <?php echo form_open('usuario/login'); ?>
             <h2 class="sr-only">Login Form</h2><img class="img-responsive" src="../assets/img/onlinechampion-facebook-image.png">
             <div class="form-group">

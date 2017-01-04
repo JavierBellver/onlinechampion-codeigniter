@@ -50,6 +50,31 @@ class Usuario extends CI_Controller
         }
     }
 
+    function register()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('login','Login','required|max_length[15]');
+        $this->form_validation->set_rules('password','Password','required|max_length[12]');
+        $this->form_validation->set_rules('email','Email','required|max_length[20]|valid_email');
+
+        if($this->form_validation->run())
+        {
+            $params = array(
+                'login' => $this->input->post('login'),
+                'password' => $this->input->post('password'),
+                'email' => $this->input->post('email'),
+            );
+
+            $usuario_id = $this->Usuario_model->add_usuario($params);
+            redirect('home/index');
+        }
+        else
+        {
+            $this->load->view('usuario/registro');
+        }
+    }
+
     /*
      * Adding a new usuario
      */
@@ -95,7 +120,7 @@ class Usuario extends CI_Controller
 			$this->form_validation->set_rules('email','Email','required|max_length[20]|valid_email');
 		
 			if($this->form_validation->run())     
-            {   
+            {
                 $params = array(
 					'login' => $this->input->post('login'),
 					'password' => $this->input->post('password'),

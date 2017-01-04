@@ -25,9 +25,14 @@
         <li>Monta tu propio equipo</li>
     </ul>  
 </div>
-            <form method="post"><img class="img-responsive" src="../assets/img/onlinechampion-facebook-image.png">
+            <p><?php echo validation_errors(); ?></p>
+            <?php echo form_open('usuario/register'); ?>
+                <img class="img-responsive" src="../assets/img/onlinechampion-facebook-image.png">
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="login" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="password" name="password" placeholder="Password">
@@ -43,11 +48,11 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
-                </div><a href="#" class="already">You already have an account? Login here.</a></form>
+                </div><a href="#" class="already">You already have an account? Login here.</a>
+            <?php echo form_close(); ?>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -18,7 +18,6 @@ class Liga extends CI_Controller
     function index()
     {
         $data['liga'] = $this->Liga_model->get_all_liga();
-
         $this->load->view('liga/index',$data);
     }
 
@@ -80,7 +79,6 @@ class Liga extends CI_Controller
             else
             {   
                 $data['liga'] = $this->Liga_model->get_liga($id);
-    
                 $this->load->view('liga/edit',$data);
             }
         }

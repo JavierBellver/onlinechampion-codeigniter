@@ -22,6 +22,29 @@ class Usuario extends CI_Controller
         $this->load->view('usuario/index',$data);
     }
 
+    function login()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('login','Login','required|max_length[15]');
+        $this->form_validation->set_rules('password','Password','required|max_length[12]');
+
+        if($this->form_validation->run())
+        {
+            $params = array(
+                'login' => $this->input->post('login'),
+                'password' => $this->input->post('password')
+            );
+
+            $usuario_id = $this->Usuario_model->login($params);
+            redirect('usuario/index');
+        }
+        else
+        {
+            $this->load->view('usuario/index');
+        }
+    }
+
     /*
      * Adding a new usuario
      */

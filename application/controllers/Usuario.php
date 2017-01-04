@@ -18,7 +18,6 @@ class Usuario extends CI_Controller
     function index()
     {
         $data['usuario'] = $this->Usuario_model->get_all_usuario();
-
         $this->load->view('usuario/index',$data);
     }
 
@@ -35,13 +34,19 @@ class Usuario extends CI_Controller
                 'login' => $this->input->post('login'),
                 'password' => $this->input->post('password')
             );
-
-            $usuario_id = $this->Usuario_model->login($params);
-            redirect('usuario/index');
+            $usuario_id = $this->Usuario_model->get_usuario_by_login_info($params);
+            if(isset($usuario_id))
+            {
+                redirect('usuario/index');
+            }
+            else
+            {
+                redirect('usuario/login');
+            }
         }
         else
         {
-            $this->load->view('usuario/index');
+            $this->load->view('usuario/login');
         }
     }
 
@@ -103,7 +108,6 @@ class Usuario extends CI_Controller
             else
             {   
                 $data['usuario'] = $this->Usuario_model->get_usuario($id);
-    
                 $this->load->view('usuario/edit',$data);
             }
         }

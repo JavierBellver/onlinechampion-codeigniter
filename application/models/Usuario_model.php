@@ -26,6 +26,11 @@ class Usuario_model extends CI_Model
     {
         return $this->db->get('usuario')->result_array();
     }
+
+    function get_usuario_by_login_info($params)
+    {
+        return $this->db->get_where('usuario',$params)->row_array();
+    }
     
     /*
      * function to add new usuario

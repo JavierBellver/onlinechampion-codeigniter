@@ -12,17 +12,18 @@
 
 <body class="Login">
     <div class="login-clean">
-        <form method="post">
+        <?php echo form_open('usuario/login'); ?>
             <h2 class="sr-only">Login Form</h2><img class="img-responsive" src="../assets/img/onlinechampion-facebook-image.png">
             <div class="form-group">
-                <input class="form-control" type="email" name="email" placeholder="Login">
+                <input class="form-control" type="text" name="login" placeholder="Login">
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit">Log In</button>
-            </div><a href="#" class="forgot">Forgot your email or password?</a></form>
+            </div><a href="#" class="forgot">Forgot your email or password?</a>
+        <?php echo form_close(); ?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

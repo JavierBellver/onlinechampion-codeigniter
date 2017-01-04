@@ -32,6 +32,7 @@
                         <a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$j['id']); ?>">Detalle</a>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -45,4 +46,3 @@
 
             <!--<a href="<?php echo site_url('juego/edit/'.$j['id']); ?>">Edit</a> |
             <a href="<?php echo site_url('juego/remove/'.$j['id']); ?>">Delete</a> --->
-	<?php } ?>

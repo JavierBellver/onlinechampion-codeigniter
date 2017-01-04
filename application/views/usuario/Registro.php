@@ -41,14 +41,8 @@
                     <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)">
                 </div>
                 <div class="form-group">
-                    <div class="checkbox">
-                        <label class="control-label">
-                            <input type="checkbox">I agree to the license terms.</label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
-                </div><a href="#" class="already">You already have an account? Login here.</a>
+                </div><a href="../usuario/login" class="already">You already have an account? Login here.</a>
             <?php echo form_close(); ?>
         </div>
     </div>

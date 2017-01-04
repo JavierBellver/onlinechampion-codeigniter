@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit">Log In</button>
-            </div><a href="#" class="forgot">Forgot your email or password?</a>
+            </div><a href="../usuario/register" class="forgot">Don't have an account? Register Here!</a>
         <?php echo form_close(); ?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

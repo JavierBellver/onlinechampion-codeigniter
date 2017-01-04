@@ -1,0 +1,15 @@
+body {
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:14px;
+  line-height:1.42857143;
+  color:#333;
+  background-color:#fff;
+  background-image:inherit;
+}
+
+body.Login {
+  background-image:url(http://gameswallpaperhd.com/wp-content/uploads/2013/12/video-game-character-wallpaperheart-attack-wallpapers-updated-video-game-collage-wallpaper-zeafygtr.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+

@@ -22,6 +22,13 @@ class Juego extends CI_Controller
         $this->load->view('juego/index',$data);
     }
 
+    function read($id)
+    {
+        $data['juego'] = $this->Juego_model->get_juego($id);
+
+        $this->load->view('juego/index',$data);
+    }
+
     /*
      * Adding a new juego
      */

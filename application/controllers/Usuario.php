@@ -83,8 +83,15 @@ class Usuario extends CI_Controller
                 'password' => $this->input->post('password'),
                 'email' => $this->input->post('email'),
             );
-            $usuario_id = $this->Usuario_model->add_usuario($params);
-            redirect('home/index');
+            if($this->input->post('password') == $this->input->post('password-repeat'))
+            {
+                $usuario_id = $this->Usuario_model->add_usuario($params);
+                redirect('home/index');
+            }
+            else
+            {
+                $this->load->view('usuario/registro');
+            }
         }
         else
         {
@@ -110,7 +117,6 @@ class Usuario extends CI_Controller
 				'password' => $this->input->post('password'),
 				'email' => $this->input->post('email'),
             );
-            
             $usuario_id = $this->Usuario_model->add_usuario($params);
             redirect('usuario/index');
         }

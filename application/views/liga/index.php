@@ -1,6 +1,7 @@
 <table border="1" width="100%">
     <tr>
 		<th>ID</th>
+		<th>Nombre</th>
 		<th>Numjugadores</th>
 		<th>Numplazasdisp</th>
 		<th>Numtemporadas</th>
@@ -9,6 +10,7 @@
 	<?php foreach($liga as $l){ ?>
     <tr>
 		<td><?php echo $l['id']; ?></td>
+		<td><?php echo $l['nombre']; ?></td>
 		<td><?php echo $l['numjugadores']; ?></td>
 		<td><?php echo $l['numplazasdisp']; ?></td>
 		<td><?php echo $l['numtemporadas']; ?></td>

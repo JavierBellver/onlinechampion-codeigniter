@@ -1,23 +1,42 @@
-<table border="1" width="100%">
-    <tr>
-		<th>ID</th>
-		<th>Nombre</th>
-		<th>Numjugadores</th>
-		<th>Numplazasdisp</th>
-		<th>Numtemporadas</th>
-		<th>Actions</th>
-    </tr>
-	<?php foreach($liga as $l){ ?>
-    <tr>
-		<td><?php echo $l['id']; ?></td>
-		<td><?php echo $l['nombre']; ?></td>
-		<td><?php echo $l['numjugadores']; ?></td>
-		<td><?php echo $l['numplazasdisp']; ?></td>
-		<td><?php echo $l['numtemporadas']; ?></td>
-		<td>
-            <a href="<?php echo site_url('liga/edit/'.$l['id']); ?>">Edit</a> | 
-            <a href="<?php echo site_url('liga/remove/'.$l['id']); ?>">Delete</a>
-        </td>
-    </tr>
-	<?php } ?>
-</table>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+	<link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+	<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="Login">
+<div></div>
+<div>
+	<div class="container fondo">
+		<h1>Ligas en activo</h1></div>
+	<div class="container">
+		<?php foreach($liga as $l){ ?>
+		<div class="row fondo">
+			<div class="col-md-3">
+				<h1><?php echo $l['nombre']; ?></h1>
+				<h4>Jugadores: <label for="N.Jugadores"><?php echo $l['numjugadores']; ?></label></h4>
+				<h4>Plazas: <label for="N.Plazas"><?php echo $l['numplazasdisp']; ?> </label></h4>
+				<h4>Temporadas: <label for="N.Temporadas"><?php echo $l['numtemporadas']; ?> </label></h4>
+				<header></header>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+		</div>
+		<?php } ?>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

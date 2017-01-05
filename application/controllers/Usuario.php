@@ -74,7 +74,7 @@ class Usuario extends CI_Controller
         $this->form_validation->set_rules('login','Login','required|max_length[15]');
         $this->form_validation->set_rules('password','Password','required|max_length[12]');
         $this->form_validation->set_rules('email','Email','required|max_length[20]|valid_email');
-        $this->form_validation->set_rules('password-repeat','Password (repeat)','required|max_length[12]');
+        $this->form_validation->set_rules('password-repeat','Password (repeat)','required|max_length[12]|matches[password]');
 
         if($this->form_validation->run())
         {
@@ -83,15 +83,8 @@ class Usuario extends CI_Controller
                 'password' => $this->input->post('password'),
                 'email' => $this->input->post('email'),
             );
-            if($this->input->post('password') == $this->input->post('password-repeat'))
-            {
                 $usuario_id = $this->Usuario_model->add_usuario($params);
                 redirect('home/index');
-            }
-            else
-            {
-                $this->load->view('usuario/registro');
-            }
         }
         else
         {

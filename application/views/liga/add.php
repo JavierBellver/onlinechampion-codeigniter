@@ -2,10 +2,11 @@
 
 <?php echo form_open('liga/add'); ?>
 
+    <div>Nombre : <input type="text" name="nombre" value="<?php echo $this->input->post('nombre'); ?>" /></div>
 	<div>Numjugadores : <input type="text" name="numjugadores" value="<?php echo $this->input->post('numjugadores'); ?>" /></div>
 	<div>Numplazasdisp : <input type="text" name="numplazasdisp" value="<?php echo $this->input->post('numplazasdisp'); ?>" /></div>
 	<div>Numtemporadas : <input type="text" name="numtemporadas" value="<?php echo $this->input->post('numtemporadas'); ?>" /></div>
-	
-	<button type="submit">Save</button>
+
+    <button type="submit">Save</button>
 
 <?php echo form_close(); ?>

@@ -25,12 +25,13 @@ class Liga extends CI_Controller
      * Adding a new liga
      */
     function add()
-    {   
+    {
         $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('numjugadores','Numjugadores','required|integer');
 		$this->form_validation->set_rules('numplazasdisp','Numplazasdisp','required|integer');
 		$this->form_validation->set_rules('numtemporadas','Numtemporadas','required|integer');
+        $this->form_validation->set_rules('nombre','Nombre','required|max_length[40]');
 		
 		if($this->form_validation->run())     
         {   
@@ -38,8 +39,8 @@ class Liga extends CI_Controller
 				'numjugadores' => $this->input->post('numjugadores'),
 				'numplazasdisp' => $this->input->post('numplazasdisp'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
+                'nombre' => $this->input->post('nombre'),
             );
-            
             $liga_id = $this->Liga_model->add_liga($params);
             redirect('liga/index');
         }
@@ -47,7 +48,7 @@ class Liga extends CI_Controller
         {
             $this->load->view('liga/add');
         }
-    }  
+    }
 
     /*
      * Editing a liga
@@ -64,6 +65,7 @@ class Liga extends CI_Controller
 			$this->form_validation->set_rules('numjugadores','Numjugadores','required|integer');
 			$this->form_validation->set_rules('numplazasdisp','Numplazasdisp','required|integer');
 			$this->form_validation->set_rules('numtemporadas','Numtemporadas','required|integer');
+            $this->form_validation->set_rules('nombre','Nombre','required|max_length[40]');
 		
 			if($this->form_validation->run())     
             {   
@@ -71,6 +73,7 @@ class Liga extends CI_Controller
 					'numjugadores' => $this->input->post('numjugadores'),
 					'numplazasdisp' => $this->input->post('numplazasdisp'),
 					'numtemporadas' => $this->input->post('numtemporadas'),
+                    'nombre' => $this->input->post('nombre'),
                 );
 
                 $this->Liga_model->update_liga($id,$params);            

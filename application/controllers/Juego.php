@@ -25,8 +25,7 @@ class Juego extends CI_Controller
     function read($id)
     {
         $data['juego'] = $this->Juego_model->get_juego($id);
-
-        $this->load->view('juego/index',$data);
+        $this->load->view('juego/detail',$data);
     }
 
     /*

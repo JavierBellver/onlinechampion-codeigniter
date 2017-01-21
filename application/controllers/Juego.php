@@ -26,11 +26,15 @@ class Juego extends CI_Controller
     {
         $data['juego'] = $this->Juego_model->get_juego($id);
         $this->load->view('juego/detail',$data);
-    }
+}
 
     /*
      * Adding a new juego
      */
+    function backofficeList()
+    {
+        $this->load->view('Backoffice/juego');
+    }
     function add()
     {   
         $this->load->library('form_validation');
@@ -52,7 +56,7 @@ class Juego extends CI_Controller
         }
         else
         {
-            $this->load->view('juego/add');
+            $this->load->view('Backoffice/juego/add');
         }
     }  
 

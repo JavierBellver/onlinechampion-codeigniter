@@ -46,7 +46,7 @@ class Liga extends CI_Controller
         }
         else
         {
-            $this->load->view('liga/add');
+            $this->load->view('Backoffice/liga/add');
         }
     }
 

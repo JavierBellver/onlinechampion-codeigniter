@@ -22,6 +22,12 @@ class Ranking extends CI_Controller
         $this->load->view('ranking/index',$data);
     }
 
+    function read($id)
+    {
+        $data['ranking'] = $this->Juego_model->get_ranking($id);
+        $this->load->view('Ranking/detail',$data);
+    }
+
     /*
      * Adding a new ranking
      */

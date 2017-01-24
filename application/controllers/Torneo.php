@@ -22,6 +22,12 @@ class Torneo extends CI_Controller
         $this->load->view('torneo/index',$data);
     }
 
+    function read($id)
+    {
+        $data['torneo'] = $this->Torneo_model->get_torneo($id);
+        $this->load->view('torneo/detail',$data);
+    }
+
     /*
      * Adding a new torneo
      */

@@ -42,7 +42,8 @@ class Liga extends CI_Controller
                 'nombre' => $this->input->post('nombre'),
             );
             $liga_id = $this->Liga_model->add_liga($params);
-            redirect('liga/index');
+            $data['liga'] = $this->Liga_model->get_all_liga();
+            $this->load->view('Backoffice/Liga/index',$data);
         }
         else
         {
@@ -76,8 +77,9 @@ class Liga extends CI_Controller
                     'nombre' => $this->input->post('nombre'),
                 );
 
-                $this->Liga_model->update_liga($id,$params);            
-                redirect('liga/index');
+                $this->Liga_model->update_liga($id,$params);
+                $data['liga'] = $this->Liga_model->get_all_liga();
+                $this->load->view('Backoffice/Liga/index',$data);
             }
             else
             {   
@@ -100,7 +102,8 @@ class Liga extends CI_Controller
         if(isset($liga['id']))
         {
             $this->Liga_model->delete_liga($id);
-            redirect('liga/index');
+            $data['liga'] = $this->Liga_model->get_all_liga();
+            $this->load->view('Backoffice/Liga/index',$data);
         }
         else
             show_error('The liga you are trying to delete does not exist.');

@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Detalle de juego</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
-<body class="login">
+<body class="Login">
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -42,14 +42,37 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1 class ="weel">Online champion</h1>
-        <div class="row">
-            <h3>¿Que es online champion?</h3>
-            <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
-            <h3>¿Como puedo ganar puntos de la página?</h3>
-            <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
-            <h3>¿Necesito estar registrado en la página para acceder a estos premios?</h3>
-            <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
+        <div>
+                <div class="container well margin">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Jugadores admitidos:</h3>
+                            <h1><?php echo $torneo['numjugadores']; ?></h1>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>Categoria:</h3>
+                            <label><?php echo $torneo['numtemporadas']; ?></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Primer premio:</h3>
+                            <h1><?php echo $torneo['1Premio']; ?></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Segundo premio:</h3>
+                            <h1><?php echo $torneo['2Premio']; ?></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Tercer premio:</h3>
+                            <h1><?php echo $torneo['3Premio']; ?></h1>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
@@ -58,4 +81,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+
 </html>

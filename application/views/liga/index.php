@@ -16,8 +16,35 @@
 <body class="Login">
 <div></div>
 <div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">OnlineChampion</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="<?php echo site_url('home'); ?>">Home</a></li>
+					<li><a href="<?php echo site_url('juego'); ?>">Juegos</a></li>
+					<li><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
+					<li class="active"><a href="<?php echo site_url('liga'); ?>">Ligas</a></li>
+					<li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="<?php echo site_url('usuario/login'); ?>">Login <span class="sr-only">(current)</span></a></li>
+					<li><a href="<?php echo site_url('usuario/register'); ?>">Static top</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<div class="container fondo">
-		<h1>Ligas en activo</h1></div>
+		<h1>Ligas en activo</h1>
+	</div>
 	<div class="container">
 		<?php foreach($liga as $l){ ?>
 		<div class="row fondo">
@@ -26,6 +53,8 @@
 				<h4>Jugadores: <label for="N.Jugadores"><?php echo $l['numjugadores']; ?></label></h4>
 				<h4>Plazas: <label for="N.Plazas"><?php echo $l['numplazasdisp']; ?> </label></h4>
 				<h4>Temporadas: <label for="N.Temporadas"><?php echo $l['numtemporadas']; ?> </label></h4>
+				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$l['idJuego']); ?>">Enlace al juego</a></h4>
+				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
 				<header></header>
 			</div>
 			<div class="col-md-3"></div>

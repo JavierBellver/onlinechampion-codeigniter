@@ -10,6 +10,8 @@ class Liga extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Liga_model');
+        $this->load->model('Juego_model');
+        $this->load->model('Ranking_model');
     } 
 
     /*

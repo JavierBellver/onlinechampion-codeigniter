@@ -11,6 +11,12 @@ class Equipo extends CI_Controller
         $this->load->library('session');
     }
 
+    function index()
+    {
+        $data['equipo'] = $this->Equipo_model->get_all_equipo();
+        $this->load->view('equipo/index',$data);
+    }
+
     function add()
     {
         $this->load->library('form_validation');

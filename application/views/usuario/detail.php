@@ -50,19 +50,16 @@
         </div>
     </nav>
     <div class="container fondo">
-        <div class="container well">
-            <h1>Lista de equipos</h1>
-            <div class="row">
-                <a class="btn btn-primary" href="<?php echo site_url('equipo/add'); ?>">Crea tu propio equipo</a>
-            </div>
-            <?php foreach($equipo as $e){ ?>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Nombre del equipo</h3>
-                            <h1><?php echo $e['nombre']; ?></h1>
-                        </div>
-                    </div>
+        <h1 class ="weel">Perfil de <?php echo $usuario['login']?></h1>
+        <div class="row">
+            <h3>Equipo al que pertenece: <?php echo $equipo['nombre']?></h3>
+            <h3>Usuarios que pertenecen al equipo</h3>
+            <?php foreach($usuariosequipo as $u){ ?>
+                <p><?php echo $u['login']?></p>
             <?php } ?>
+        </div>
+        <div class="row">
+            <a href="#" class="btn btn-primary">Invitar jugador al equipo</a>
         </div>
     </div>
 </div>

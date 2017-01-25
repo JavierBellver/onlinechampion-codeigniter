@@ -10,6 +10,7 @@ class Usuario extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Usuario_model');
+        $this->load->model('Equipo_model');
         $this->load->library('session');
     } 
 
@@ -40,7 +41,7 @@ class Usuario extends CI_Controller
             if(isset($usuario_id))
             {
                 $data = array(
-                    'id' => $usuario_id,
+                    'id' => $usuario_id['id'],
                     'usuario' => $this->input->post('login'),
                     'password' => $this->input->post('password'),
                     'loggedIn' => TRUE
@@ -60,6 +61,17 @@ class Usuario extends CI_Controller
         {
             $this->load->view('usuario/login');
         }
+    }
+
+    function read($id)
+    {
+        $data['usuario'] = $this->Usuario_model->get_usuario($id);
+        $data['equipo'] = $this->Equipo_model->get_equipo($data['usuario']['idEquipo']);
+        $params = array(
+          'idEquipo' => $data['usuario']['idEquipo'],
+        );
+        $data['usuariosequipo'] = $this->Usuario_model->get_usuarios_by_equipo($params);
+        $this->load->view('usuario/detail',$data);
     }
 
     function logout()
@@ -86,8 +98,8 @@ class Usuario extends CI_Controller
                 'password' => $this->input->post('password'),
                 'email' => $this->input->post('email'),
             );
-                $usuario_id = $this->Usuario_model->add_usuario($params);
-                redirect('home/index');
+            $usuario_id = $this->Usuario_model->add_usuario($params);
+            redirect('home/index');
         }
         else
         {

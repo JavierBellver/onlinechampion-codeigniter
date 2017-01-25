@@ -35,6 +35,7 @@
                     <li class="active"><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
                     <?php if($this->session->has_userdata('usuario')) {?>
                         <li><a href="<?php echo site_url('equipo'); ?>">Equipos</a></li>
+                        <li><a href="<?php echo site_url('usuario/read/'.$this->session->id); ?>">Mi perfil</a></li>
                     <?php } ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

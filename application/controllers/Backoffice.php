@@ -14,6 +14,7 @@ class Backoffice extends CI_Controller
         parent::__construct();
         $this->load->model('Juego_model');
         $this->load->model('Liga_model');
+        $this->load->model('Torneo_model');
     }
 
     function index()
@@ -31,18 +32,18 @@ class Backoffice extends CI_Controller
 
     function Ligas()
     {
-        $data['Ligas']=$this->Liga_model->get_all_liga();
+        $data['liga']=$this->Liga_model->get_all_liga();
         $this->load->view('Backoffice/Liga/index',$data);
 
     }
 
-    /*
-     * Adding a new juego
-     */
-    function backofficeList()
+    function Torneos()
     {
-        $this->load->view('Backoffice/juego');
+        $data['Torneos']=$this->Torneo_model->get_all_torneo();
+        $this->load->view('Backoffice/Torneo/index',$data);
+
     }
+
     function add()
     {
         $this->load->library('form_validation');

@@ -10,6 +10,8 @@ class Liga extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Liga_model');
+        $this->load->model('Juego_model');
+        $this->load->model('Ranking_model');
     } 
 
     /*
@@ -32,6 +34,7 @@ class Liga extends CI_Controller
 		$this->form_validation->set_rules('numplazasdisp','Numplazasdisp','required|integer');
 		$this->form_validation->set_rules('numtemporadas','Numtemporadas','required|integer');
         $this->form_validation->set_rules('nombre','Nombre','required|max_length[40]');
+
 		
 		if($this->form_validation->run())     
         {   
@@ -40,14 +43,19 @@ class Liga extends CI_Controller
 				'numplazasdisp' => $this->input->post('numplazasdisp'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
                 'nombre' => $this->input->post('nombre'),
+                'idJuego' => $this->input->post('idJuego'),
+                'idRanking' => $this->input->post('idRanking')
             );
             $liga_id = $this->Liga_model->add_liga($params);
             $data['liga'] = $this->Liga_model->get_all_liga();
+
             $this->load->view('Backoffice/Liga/index',$data);
         }
         else
         {
-            $this->load->view('Backoffice/liga/add');
+            $data['Juegos'] = $this->Juego_model->get_all_juego();
+            $data['Rankings'] = $this->Ranking_model->get_all_ranking();
+            $this->load->view('Backoffice/liga/add',$data);
         }
     }
 
@@ -79,11 +87,14 @@ class Liga extends CI_Controller
 
                 $this->Liga_model->update_liga($id,$params);
                 $data['liga'] = $this->Liga_model->get_all_liga();
+
                 $this->load->view('Backoffice/Liga/index',$data);
             }
             else
             {   
                 $data['liga'] = $this->Liga_model->get_liga($id);
+                $data['Juegos'] = $this->Juego_model->get_all_juego();
+                $data['Rankings'] = $this->Ranking_model->get_all_ranking();
                 $this->load->view('liga/edit',$data);
             }
         }

@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Listado de ligas</title>
+        <title>Listado de Torneos</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
@@ -33,31 +33,32 @@
 <div class="container fluid">
     <table class="table table-striped">
         <tr>
-            <th>Nombre</th>
             <th>Jugadores</th>
-            <th>Plazas</th>
             <th>Temporadas</th>
             <th>Juego</th>
-            <th>Ranking</th>
+            <th>Primer Premio</th>
+            <th>Segundo Premio</th>
+            <th>Tercer Premio</th>
             <th>Actions</th>
+
         </tr>
-        <?php foreach($liga as $l){ ?>
+        <?php foreach($Torneos as $t){ ?>
             <tr>
-                <td><?php echo $l['nombre']; ?></td>
-                <td><?php echo $l['numjugadores']; ?></td>
-                <td><?php echo $l['numplazasdisp']; ?></td>
-                <td><?php echo $l['numtemporadas']; ?></td>
-                <td><?php echo $l['idJuego']; ?></td>
-                <td><?php echo $l['idRanking']; ?></td>
+                <td><?php echo $t['numjugadores']; ?></td>
+                <td><?php echo $t['numtemporadas']; ?></td>
+                <td><?php echo $t['juego']; ?></td>
+                <td><?php echo $t['1Premio']; ?></td>
+                <td><?php echo $t['2Premio']; ?></td>
+                <td><?php echo $t['3Premio']; ?></td>
                 <td>
-                    <a class="glyphicon glyphicon-pencil" href="<?php echo site_url('liga/edit/'.$l['id']); ?>"></a> |
-                    <a class="glyphicon glyphicon-trash "href="<?php echo site_url('liga/remove/'.$l['id']); ?>"></a>
+                    <a class="glyphicon glyphicon-pencil" href="<?php echo site_url('torneo/edit/'.$t['id']); ?>"></a> |
+                    <a class="glyphicon glyphicon-trash "href="<?php echo site_url('torneo/remove/'.$t['id']); ?>"></a>
                 </td>
             </tr>
         <?php } ?>
     </table>
 
-<a class="glyphicon glyphicon-plus" href="<?php echo site_url('liga/add'); ?>"></a>
+    <a class="glyphicon glyphicon-plus" href="<?php echo site_url('torneo/add'); ?>"></a>
 </div>
 </body>
 

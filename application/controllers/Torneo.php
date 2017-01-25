@@ -10,6 +10,7 @@ class Torneo extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Torneo_model');
+        $this->load->model('Juego_model');
     } 
 
     /*
@@ -31,20 +32,26 @@ class Torneo extends CI_Controller
 
 		$this->form_validation->set_rules('numjugadores','Numjugadores','required|integer');
 		$this->form_validation->set_rules('numtemporadas','Numtemporadas','required|integer');
-		
+
 		if($this->form_validation->run())     
         {   
             $params = array(
 				'numjugadores' => $this->input->post('numjugadores'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
+                'juego' => $this->input->post('juego'),
+                '1Premio' => $this->input->post('1Premio'),
+                '2Premio' => $this->input->post('2Premio'),
+                '3Premio' => $this->input->post('3Premio'),
             );
             
             $torneo_id = $this->Torneo_model->add_torneo($params);
-            redirect('torneo/index');
+            $data['Torneos'] = $this->Torneo_model->get_all_torneo();
+            $this->load->view('Backoffice/Torneo/index',$data);
         }
         else
         {
-            $this->load->view('torneo/add');
+            $data['Juegos'] = $this->Juego_model->get_all_juego();
+            $this->load->view('Backoffice/Torneo/add',$data);
         }
     }  
 
@@ -70,13 +77,14 @@ class Torneo extends CI_Controller
 					'numtemporadas' => $this->input->post('numtemporadas'),
                 );
 
-                $this->Torneo_model->update_torneo($id,$params);            
-                redirect('torneo/index');
+                $this->Torneo_model->update_torneo($id,$params);
+                $data['Torneos'] = $this->Torneo_model->get_all_torneo();
+                $this->load->view('Backoffice/Torneo/index',$data);
             }
             else
             {   
                 $data['torneo'] = $this->Torneo_model->get_torneo($id);
-    
+                $data['Juegos'] = $this->Juego_model->get_all_juego();
                 $this->load->view('torneo/edit',$data);
             }
         }
@@ -95,7 +103,8 @@ class Torneo extends CI_Controller
         if(isset($torneo['id']))
         {
             $this->Torneo_model->delete_torneo($id);
-            redirect('torneo/index');
+            $data['Torneos'] = $this->Torneo_model->get_all_torneo();
+            $this->load->view('Backoffice/Torneo/index',$data);
         }
         else
             show_error('The torneo you are trying to delete does not exist.');

@@ -18,7 +18,7 @@ class Juego extends CI_Controller
      */
     function index()
     {
-        $data['juego'] = $this->Juego_model->get_all_juego();
+        $data['Juegos'] = $this->Juego_model->get_all_juego();
 
         $this->load->view('juego/index',$data);
     }
@@ -29,9 +29,14 @@ class Juego extends CI_Controller
         $this->load->view('juego/detail',$data);
     }
 
+
     /*
      * Adding a new juego
      */
+    function backofficeList()
+    {
+        $this->load->view('Backoffice/juego');
+    }
     function add()
     {   
         $this->load->library('form_validation');
@@ -49,11 +54,12 @@ class Juego extends CI_Controller
             );
             
             $juego_id = $this->Juego_model->add_juego($params);
-            redirect('juego/index');
+            $data['Juegos'] = $this->Juego_model->get_all_juego();
+            $this->load->view('Backoffice/Juego/index',$data);
         }
         else
         {
-            $this->load->view('juego/add');
+            $this->load->view('Backoffice/juego/add');
         }
     }  
 
@@ -81,8 +87,9 @@ class Juego extends CI_Controller
 					'categoria' => $this->input->post('categoria'),
                 );
 
-                $this->Juego_model->update_juego($id,$params);            
-                redirect('juego/index');
+                $this->Juego_model->update_juego($id,$params);
+                $data['Juegos'] = $this->Juego_model->get_all_juego();
+                $this->load->view('Backoffice/Juego/index',$data);
             }
             else
             {   
@@ -106,7 +113,8 @@ class Juego extends CI_Controller
         if(isset($juego['id']))
         {
             $this->Juego_model->delete_juego($id);
-            redirect('juego/index');
+            $data['Juegos'] = $this->Juego_model->get_all_juego();
+            $this->load->view('Backoffice/Juego/index',$data);
         }
         else
             show_error('The juego you are trying to delete does not exist.');

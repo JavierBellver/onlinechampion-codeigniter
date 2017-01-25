@@ -49,7 +49,7 @@
         <div class="container fondo">
             <h1 class ="weel">Listado de juegos</h1>
             <div class="row">
-                <?php foreach($juego as $j){ ?>
+                <?php foreach($Juegos as $j){ ?>
                 <div class="container well">
                     <div class="col-md-3">
                         <h1><?php echo $j['nombre']; ?></h1>

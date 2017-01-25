@@ -18,6 +18,34 @@ class Ranking_model extends CI_Model
     {
         return $this->db->get_where('ranking',array('id'=>$id))->row_array();
     }
+
+    function get_users_by_ranking($id)
+    {
+        $userNamesSql = 'SELECT * FROM usuario INNER JOIN usuarioranking ON usuarioranking.idUsuario = usuario.id WHERE usuarioranking.idRanking = ?';
+        $userDataSql = 'SELECT * FROM usuarioranking WHERE idRanking = ?';
+        $usersNames = $this->db->query($userNamesSql,array($id))->result();
+        $usersData = $this->db->query($userDataSql,array($id))->result();
+        $resultarray = array();
+        foreach ($usersNames as $row)
+        {
+            $userData = new stdClass();
+            foreach ($usersData as $d)
+            {
+                if($row->id == $d->idUsuario)
+                {
+                    $userData = $d;
+                }
+            }
+            $result = new stdClass();
+            $result->id = $row->id;
+            $result->login = $row->login;
+            $result->puntos = $userData->puntos;
+            $result->jugadas = $userData->jugadas;
+            $result->ganadas = $userData->ganadas;
+            array_push($resultarray,$result);
+        }
+        return $resultarray;
+    }
     
     /*
      * Get all ranking

@@ -58,7 +58,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<a class="btn btn-primary" href="<?php echo site_url('ranking/read'.$r['id']); ?>">Detalles del ranking</a>
+							<a class="btn btn-primary" href="<?php echo site_url('ranking/read/'.$r['id']); ?>">Detalles del ranking</a>
 						</div>
 					</div>
 				</div>

@@ -1,25 +1,74 @@
-<table border="1" width="100%">
-    <tr>
-		<th>ID</th>
-		<th>NumRanking</th>
-		<th>Puntos</th>
-		<th>Jugadas</th>
-		<th>Ganadas</th>
-		<th>Juego</th>
-		<th>Actions</th>
-    </tr>
-	<?php foreach($ranking as $r){ ?>
-    <tr>
-		<td><?php echo $r['id']; ?></td>
-		<td><?php echo $r['numRanking']; ?></td>
-		<td><?php echo $r['puntos']; ?></td>
-		<td><?php echo $r['jugadas']; ?></td>
-		<td><?php echo $r['ganadas']; ?></td>
-		<td><?php echo $r['juego']; ?></td>
-		<td>
-            <a href="<?php echo site_url('ranking/edit/'.$r['id']); ?>">Edit</a> | 
-            <a href="<?php echo site_url('ranking/remove/'.$r['id']); ?>">Delete</a>
-        </td>
-    </tr>
-	<?php } ?>
-</table>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rankings</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+	<link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+	<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="Login">
+<div></div>
+<div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">OnlineChampion</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="<?php echo site_url('home'); ?>">Home</a></li>
+					<li><a href="<?php echo site_url('juego'); ?>">Juegos</a></li>
+					<li class="active"><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
+					<li><a href="<?php echo site_url('liga'); ?>">Ligas</a></li>
+					<li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="<?php echo site_url('usuario/login'); ?>">Login <span class="sr-only">(current)</span></a></li>
+					<li><a href="<?php echo site_url('usuario/register'); ?>">Static top</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container fondo">
+		<h1 class ="weel">Listado de rankings</h1>
+		<div class="row">
+			<?php foreach($ranking as $r){ ?>
+				<div class="container well">
+					<div class="row">
+						<div class="col-md-4">
+							<h3>Número de temporada</h3>
+							<h1><?php echo $r['numRanking']; ?></h1>
+						</div>
+						<div class="col-md-4">
+							<a class="btn btn-primary" href="<?php echo site_url('juego/read/'.$r['juego']); ?>">Enlace al juego</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<a class="btn btn-primary" href="<?php echo site_url('ranking/read/'.$r['id']); ?>">Detalles del ranking</a>
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+<div></div>
+<div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

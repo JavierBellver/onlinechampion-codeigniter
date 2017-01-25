@@ -18,8 +18,14 @@ class Ranking extends CI_Controller
     function index()
     {
         $data['ranking'] = $this->Ranking_model->get_all_ranking();
-
         $this->load->view('ranking/index',$data);
+    }
+
+    function read($id)
+    {
+        $data['ranking'] = $this->Ranking_model->get_ranking($id);
+        $data['usuarios'] = $this->Ranking_model->get_users_by_ranking($id);
+        $this->load->view('ranking/detail',$data);
     }
 
     /*

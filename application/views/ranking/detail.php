@@ -35,8 +35,12 @@
                     <li class="active"><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="<?php echo site_url('usuario/login'); ?>">Login <span class="sr-only">(current)</span></a></li>
-                    <li><a href="<?php echo site_url('usuario/register'); ?>">Static top</a></li>
+                    <?php if($this->session->has_userdata('usuario')) {?>
+                        <li><a href="<?php echo site_url('usuario/logout'); ?>">Logout</a></li>
+                    <?php } else {?>
+                        <li class="active"><a href="<?php echo site_url('usuario/login'); ?>">Login <span class="sr-only">(current)</span></a></li>
+                        <li><a href="<?php echo site_url('usuario/register'); ?>">Registrarse</a></li>
+                    <?php }?>
                 </ul>
             </div>
         </div>

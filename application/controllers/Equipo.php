@@ -7,6 +7,7 @@ class Equipo extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Equipo_model');
+        $this->load->model('Usuario_model');
         $this->load->library('session');
     }
 
@@ -14,24 +15,33 @@ class Equipo extends CI_Controller
     {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nombre','Nombre','required|max_length[30]');
-        $this->form_validation->set_rules('descripcion','Descripcion','required');
-        $this->form_validation->set_rules('categoria','Categoria','required|max_length[20]');
+        $this->form_validation->set_rules('nombre','Nombre','required|max_length[20]');
 
         if($this->form_validation->run())
         {
             $params = array(
                 'nombre' => $this->input->post('nombre'),
-                'descripcion' => $this->input->post('descripcion'),
-                'categoria' => $this->input->post('categoria'),
             );
-
-            $juego_id = $this->Juego_model->add_juego($params);
-            redirect('juego/index');
+            $equipo_id = $this->Equipo_model->add_equipo($params);
+            if($this->session->has_userdata('usuario'))
+            {
+                $id = $this->session->userdata('id');
+                $params = array(
+                    'idEquipo' =>  $equipo_id,
+                );
+                if($this->Usuario_model->update_usuario($id['id'],$params) == "usuario updated successfully")
+                {
+                    redirect('equipo/index');
+                }
+                else
+                {
+                    redirect('home/index');
+                }
+            }
         }
         else
         {
-            $this->load->view('juego/add');
+            $this->load->view('equipo/add');
         }
     }
 }

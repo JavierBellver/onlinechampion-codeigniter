@@ -35,7 +35,7 @@ class Equipo extends CI_Controller
                 $params = array(
                     'idEquipo' =>  $equipo_id,
                 );
-                if($this->Usuario_model->update_usuario($id['id'],$params) == "usuario updated successfully")
+                if($this->Usuario_model->update_usuario($id,$params) == "usuario updated successfully")
                 {
                     redirect('equipo/index');
                 }

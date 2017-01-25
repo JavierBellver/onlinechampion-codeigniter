@@ -27,11 +27,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="pwd">Juego:</label>
+                    <label class="control-label col-sm-2" for="Juego">Juego:</label>
                     <div class="col-md-5">
                         <select name="Juego">
                             <?php foreach($Juegos as $j){ ?>
-                                int id=$j['id];
                                 <option value=<?php echo $j['id'] ?>><?php echo $j['nombre']; ?></option>
                             <?php } ?></select>
                     </div>

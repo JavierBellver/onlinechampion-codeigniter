@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Juego: </label>
+                    <label class="control-label col-sm-2" for="Juego">Juego: </label>
                     <div class="col-md-5">
                         <select name="Juego">
                             <?php foreach($Juegos as $j){ ?>

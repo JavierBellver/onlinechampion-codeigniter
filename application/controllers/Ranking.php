@@ -39,18 +39,12 @@ class Ranking extends CI_Controller
         $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('numRanking','NumRanking','required|integer');
-		//$this->form_validation->set_rules('puntos','Puntos','required|integer');
-		//$this->form_validation->set_rules('jugadas','Jugadas','required|integer');
-		//$this->form_validation->set_rules('ganadas','Ganadas','required|integer');
-		$this->form_validation->set_rules('juego','Juego','required|integer');
+		$this->form_validation->set_rules('Juego','Juego','required|integer');
 		
 		if($this->form_validation->run())     
         {   
             $params = array(
 				'numRanking' => $this->input->post('numRanking'),
-				//'puntos' => $this->input->post('puntos'),
-				//'jugadas' => $this->input->post('jugadas'),
-				//'ganadas' => $this->input->post('ganadas'),
 				'juego' => $_POST['Juego'],
             );
             
@@ -80,18 +74,13 @@ class Ranking extends CI_Controller
             $this->load->library('form_validation');
 
 			$this->form_validation->set_rules('numRanking','NumRanking','required|integer');
-			$this->form_validation->set_rules('puntos','Puntos','required|integer');
-			$this->form_validation->set_rules('jugadas','Jugadas','required|integer');
-			$this->form_validation->set_rules('ganadas','Ganadas','required|integer');
 			$this->form_validation->set_rules('juego','Juego','required|integer');
 		
 			if($this->form_validation->run())     
             {   
                 $params = array(
 					'numRanking' => $this->input->post('numRanking'),
-					'puntos' => $this->input->post('puntos'),
-					'jugadas' => $this->input->post('jugadas'),
-					'ganadas' => $this->input->post('ganadas'),
+
 					'juego' => $this->input->post('juego'),
                 );
 

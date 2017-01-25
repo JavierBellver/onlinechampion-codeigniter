@@ -11,6 +11,8 @@ class Ranking extends CI_Controller
         parent::__construct();
         $this->load->model('Ranking_model');
         $this->load->model('Juego_model');
+        $this->load->library('session');
+
     } 
 
     /*
@@ -19,14 +21,14 @@ class Ranking extends CI_Controller
     function index()
     {
         $data['ranking'] = $this->Ranking_model->get_all_ranking();
-
         $this->load->view('ranking/index',$data);
     }
 
     function read($id)
     {
-        $data['ranking'] = $this->Juego_model->get_ranking($id);
-        $this->load->view('Ranking/detail',$data);
+        $data['ranking'] = $this->Ranking_model->get_ranking($id);
+        $data['usuarios'] = $this->Ranking_model->get_users_by_ranking($id);
+        $this->load->view('ranking/detail',$data);
     }
 
     /*

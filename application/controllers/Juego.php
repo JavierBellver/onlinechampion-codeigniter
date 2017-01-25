@@ -10,6 +10,7 @@ class Juego extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Juego_model');
+        $this->load->library('session');
     } 
 
     /*

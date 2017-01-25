@@ -11,6 +11,7 @@ class Torneo extends CI_Controller
         parent::__construct();
         $this->load->model('Torneo_model');
         $this->load->model('Juego_model');
+        $this->load->library('session');
     } 
 
     /*
@@ -21,6 +22,12 @@ class Torneo extends CI_Controller
         $data['torneo'] = $this->Torneo_model->get_all_torneo();
 
         $this->load->view('torneo/index',$data);
+    }
+
+    function read($id)
+    {
+        $data['torneo'] = $this->Torneo_model->get_torneo($id);
+        $this->load->view('torneo/detail',$data);
     }
 
     /*

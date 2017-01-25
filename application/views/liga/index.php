@@ -34,6 +34,9 @@
 					<li><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
 					<li class="active"><a href="<?php echo site_url('liga'); ?>">Ligas</a></li>
 					<li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
+					<?php if($this->session->has_userdata('usuario')) {?>
+						<li><a href="<?php echo site_url('equipo'); ?>">Equipos</a></li>
+					<?php } ?>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<?php if($this->session->has_userdata('usuario')) {?>
@@ -58,7 +61,7 @@
 				<h4>Plazas: <label for="N.Plazas"><?php echo $l['numplazasdisp']; ?> </label></h4>
 				<h4>Temporadas: <label for="N.Temporadas"><?php echo $l['numtemporadas']; ?> </label></h4>
 				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$l['idJuego']); ?>">Enlace al juego</a></h4>
-				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
+				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('ranking/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
 				<header></header>
 			</div>
 			<div class="col-md-3"></div>

@@ -66,9 +66,9 @@ class Usuario extends CI_Controller
     function read($id)
     {
         $data['usuario'] = $this->Usuario_model->get_usuario($id);
-        $data['equipo'] = $this->Equipo_model->get_equipo($data['usuario']['equipo']);
+        $data['equipo'] = $this->Equipo_model->get_equipo($data['usuario']['idEquipo']);
         $params = array(
-          'idEquipo' => $data['usuario']['equipo'],
+          'idEquipo' => $data['usuario']['idEquipo'],
         );
         $data['usuariosequipo'] = $this->Usuario_model->get_usuarios_by_equipo($params);
         $this->load->view('usuario/detail',$data);

@@ -51,12 +51,14 @@
     <div class="container fondo">
         <h1 class ="weel">Perfil de <?php echo $usuario['login']?></h1>
         <div class="row">
-            <h3>¿Que es online champion?</h3>
-            <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
-            <h3>¿Como puedo ganar puntos de la página?</h3>
-            <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
-            <h3>¿Necesito estar registrado en la página para acceder a estos premios?</h3>
-            <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
+            <h3>Equipo al que pertenece: <?php echo $equipo['nombre']?></h3>
+            <h3>Usuarios que pertenecen al equipo</h3>
+            <?php foreach($usuariosequipo as $u){ ?>
+                <p><?php echo $u['login']?></p>
+            <?php } ?>
+        </div>
+        <div class="row">
+            <a href="#" class="btn btn-primary">Invitar jugador al equipo</a>
         </div>
     </div>
 </div>

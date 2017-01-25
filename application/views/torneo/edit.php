@@ -24,11 +24,11 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Juego: </label>
                     <div class="col-md-5">
-                        <select>
+                        <select name="Juego">
                             <?php foreach($Juegos as $j){ ?>
-                                <option value="<?php echo $this->input->post('juego'); ?>"><?php echo $j['nombre']; ?></option>
-                            <?php } ?>
-                            <select>
+                                int id=$j['id];
+                                <option value=<?php echo $j['id'] ?>><?php echo $j['nombre']; ?></option>
+                            <?php } ?></select>
                     </div>
                 </div>
 
@@ -49,21 +49,21 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Primer premio : </label>
                     <div class="col-md-5">
-                        <input type="text" name="numtemporadas" value="<?php echo ($this->input->post('1Premio') ? $this->input->post('numtemporadas') : $torneo['1Premio']); ?>" />
+                        <input type="text" name="1Premio" value="<?php echo ($this->input->post('1Premio') ? $this->input->post('numtemporadas') : $torneo['1Premio']); ?>" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Segundo premio : </label>
                     <div class="col-md-5">
-                        <input type="text" name="numtemporadas" value="<?php echo ($this->input->post('2Premio') ? $this->input->post('numtemporadas') : $torneo['2Premio']); ?>" />
+                        <input type="text" name="2Premio" value="<?php echo ($this->input->post('2Premio') ? $this->input->post('numtemporadas') : $torneo['2Premio']); ?>" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Tercer premio : </label>
                     <div class="col-md-5">
-                        <input type="text" name="numtemporadas" value="<?php echo ($this->input->post('3Premio') ? $this->input->post('numtemporadas') : $torneo['3Premio']); ?>" />
+                        <input type="text" name="3Premio" value="<?php echo ($this->input->post('3Premio') ? $this->input->post('numtemporadas') : $torneo['3Premio']); ?>" />
                     </div>
                 </div>
 

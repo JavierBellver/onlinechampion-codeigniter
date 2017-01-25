@@ -43,8 +43,8 @@ class Liga extends CI_Controller
 				'numplazasdisp' => $this->input->post('numplazasdisp'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
                 'nombre' => $this->input->post('nombre'),
-                'idJuego' => $this->input->post('idJuego'),
-                'idRanking' => $this->input->post('idRanking')
+                'idJuego' => $_POST['Juego'],
+                'idRanking' => $_POST['Ranking'],
             );
             $liga_id = $this->Liga_model->add_liga($params);
             $data['liga'] = $this->Liga_model->get_all_liga();

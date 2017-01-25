@@ -38,7 +38,7 @@ class Torneo extends CI_Controller
             $params = array(
 				'numjugadores' => $this->input->post('numjugadores'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
-                'juego' => $this->input->post('juego'),
+                'juego' => $_POST['Juego'],
                 '1Premio' => $this->input->post('1Premio'),
                 '2Premio' => $this->input->post('2Premio'),
                 '3Premio' => $this->input->post('3Premio'),
@@ -73,8 +73,12 @@ class Torneo extends CI_Controller
 			if($this->form_validation->run())     
             {   
                 $params = array(
-					'numjugadores' => $this->input->post('numjugadores'),
-					'numtemporadas' => $this->input->post('numtemporadas'),
+                    'numjugadores' => $this->input->post('numjugadores'),
+                    'numtemporadas' => $this->input->post('numtemporadas'),
+                    'juego' => $_POST['Juego'],
+                    '1Premio' => $this->input->post('1Premio'),
+                    '2Premio' => $this->input->post('2Premio'),
+                    '3Premio' => $this->input->post('3Premio'),
                 );
 
                 $this->Torneo_model->update_torneo($id,$params);

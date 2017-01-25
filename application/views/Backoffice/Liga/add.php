@@ -28,9 +28,10 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Juego: </label>
                     <div class="col-md-5">
-                        <select value="<?php echo $this->input->post('idJuego'); ?>" >
+                        <select name="Juego">
                             <?php foreach($Juegos as $j){ ?>
-                                <option value=.$j['id']><?php echo $j['nombre']; ?></option>
+                                int id=$j['id];
+                                <option value=<?php echo $j['id'] ?>><?php echo $j['nombre']; ?></option>
                             <?php } ?></select>
                     </div>
                 </div>
@@ -38,9 +39,9 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Ranking: </label>
                     <div class="col-md-5">
-                        <select value="<?php echo $this->input->post('idRanking'); ?>" >
+                        <select name="Ranking">
                             <?php foreach($Rankings as $r){ ?>
-                                <option value=.$r['id']><?php echo $r['id']; ?></option>
+                                <option value=<?php echo $r['id'] ?>><?php echo $r['id']; ?></option>
                             <?php } ?></select>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Plazas : </label>
                     <div class="col-md-5">
-                        <input type="text" name="numplazasdisp" value="<?php echo $this->input->post('numplazasdisp'); ?>" />
+                        <input type="number" name="numplazasdisp" value="<?php echo $this->input->post('numplazasdisp'); ?>" />
                     </div>
                 </div>
                 <div class="form-group">

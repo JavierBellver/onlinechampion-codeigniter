@@ -10,6 +10,7 @@ class Ranking extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Ranking_model');
+        $this->load->model('Juego_model');
     } 
 
     /*
@@ -36,19 +37,19 @@ class Ranking extends CI_Controller
         $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('numRanking','NumRanking','required|integer');
-		$this->form_validation->set_rules('puntos','Puntos','required|integer');
-		$this->form_validation->set_rules('jugadas','Jugadas','required|integer');
-		$this->form_validation->set_rules('ganadas','Ganadas','required|integer');
+		//$this->form_validation->set_rules('puntos','Puntos','required|integer');
+		//$this->form_validation->set_rules('jugadas','Jugadas','required|integer');
+		//$this->form_validation->set_rules('ganadas','Ganadas','required|integer');
 		$this->form_validation->set_rules('juego','Juego','required|integer');
 		
 		if($this->form_validation->run())     
         {   
             $params = array(
 				'numRanking' => $this->input->post('numRanking'),
-				'puntos' => $this->input->post('puntos'),
-				'jugadas' => $this->input->post('jugadas'),
-				'ganadas' => $this->input->post('ganadas'),
-				'juego' => $this->input->post('juego'),
+				//'puntos' => $this->input->post('puntos'),
+				//'jugadas' => $this->input->post('jugadas'),
+				//'ganadas' => $this->input->post('ganadas'),
+				'juego' => $_POST['Juego'],
             );
             
             $ranking_id = $this->Ranking_model->add_ranking($params);
@@ -58,7 +59,7 @@ class Ranking extends CI_Controller
         {
 
 			$this->load->model('Juego_model');
-			$data['all_juego'] = $this->Juego_model->get_all_juego();
+			$data['Juegos'] = $this->Juego_model->get_all_juego();
                 
             $this->load->view('ranking/add',$data);
         }

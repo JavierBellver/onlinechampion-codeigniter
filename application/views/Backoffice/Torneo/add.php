@@ -23,11 +23,11 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Juego: </label>
                     <div class="col-md-5">
-                            <select>
+                        <select name="Juego">
                             <?php foreach($Juegos as $j){ ?>
-                                <option value="<?php echo $this->input->post('juego'); ?>"><?php echo $j['nombre']; ?></option>
-                            <?php } ?>
-                        <select>
+                                int id=$j['id];
+                                <option value=<?php echo $j['id'] ?>><?php echo $j['nombre']; ?></option>
+                            <?php } ?></select>
                     </div>
                 </div>
 

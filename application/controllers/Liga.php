@@ -12,6 +12,7 @@ class Liga extends CI_Controller
         $this->load->model('Liga_model');
         $this->load->model('Juego_model');
         $this->load->model('Ranking_model');
+        $this->load->library('session');
     } 
 
     /*

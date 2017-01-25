@@ -10,6 +10,7 @@ class Usuario extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Usuario_model');
+        $this->load->library('session');
     } 
 
     /*

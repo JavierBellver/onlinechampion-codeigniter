@@ -10,6 +10,7 @@ class Torneo extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Torneo_model');
+        $this->load->library('session');
     } 
 
     /*

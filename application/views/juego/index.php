@@ -42,6 +42,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
     </html>
-
-            <!--<a href="<?php echo site_url('juego/edit/'.$j['id']); ?>">Edit</a> |
-            <a href="<?php echo site_url('juego/remove/'.$j['id']); ?>">Delete</a> --->

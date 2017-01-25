@@ -49,17 +49,20 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1>Lista de equipos</h1>
-        <?php foreach($equipo as $e){ ?>
-            <div class="container well">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Nombre del equipo</h3>
-                        <h1><?php echo $e['nombre']; ?></h1>
-                    </div>
-                </div>
+        <div class="container well">
+            <h1>Lista de equipos</h1>
+            <div class="row">
+                <a class="btn btn-primary" href="<?php echo site_url('equipo/add'); ?>">Crea tu propio equipo</a>
             </div>
-        <?php } ?>
+            <?php foreach($equipo as $e){ ?>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Nombre del equipo</h3>
+                            <h1><?php echo $e['nombre']; ?></h1>
+                        </div>
+                    </div>
+            <?php } ?>
+        </div>
     </div>
 </div>
 <div></div>

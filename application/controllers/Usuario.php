@@ -66,6 +66,7 @@ class Usuario extends CI_Controller
         $this->load->library('session');
         $data = array('usuario', 'password', 'loggedIn');
         $this->session->unset_userdata($data);
+        $this->load->view('home/index');
     }
 
     function register()

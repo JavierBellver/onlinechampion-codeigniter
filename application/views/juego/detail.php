@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="<?php echo site_url('usuario/login'); ?>">Login <span class="sr-only">(current)</span></a></li>
-                    <li><a href="<?php echo site_url('usuario/register'); ?>">Static top</a></li>
+                    <li><a href="<?php echo site_url('usuario/register'); ?>">Registrarse</a></li>
                 </ul>
             </div>
         </div>

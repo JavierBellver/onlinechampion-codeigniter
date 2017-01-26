@@ -50,4 +50,27 @@ class Equipo extends CI_Controller
             $this->load->view('equipo/add');
         }
     }
+
+    function invite()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('id','Id','required|integer');
+        $this->form_validation->set_rules('idEquipo','IdEquipo','required|integer');
+
+        if($this->form_validation->run())
+        {
+            $params = array(
+                'idEquipo' => $this->input->post('idEquipo'),
+            );
+            $usuario_id = $this->Usuario_model->update_usuario($this->input->post('id'),$params);
+            redirect('usuario/read/'.$this->input->post('id'));
+        }
+        else
+        {
+            $data['usuarios'] = $this->Usuario_model->get_all_usuario();
+            $data['idequipo'] = $this->Usuario_model->get_usuario($this->session->id)['idEquipo'];
+            $this->load->view('equipo/invite',$data);
+        }
+    }
 }

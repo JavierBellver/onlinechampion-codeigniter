@@ -7,10 +7,10 @@
         <title>Login</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-        <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-        <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
     </head>
 
     <body class="Login">
@@ -50,17 +50,17 @@
                 </div>
             </div>
         </nav>
+
         <div class="container fondo">
-            <h1 class ="weel">Listado de juegos</h1>
-            <div class="row">
-                <?php foreach($Juegos as $j){ ?>
-                <div class="container well">
+            <h1><b>Listado de Juegos</b></h1>
+            <?php foreach($Juegos as $j){ ?>
+            <div class="well">
+                <div class="row">
                     <div class="col-md-3">
-                        <h1><?php echo $j['nombre']; ?></h1>
+                        <h2><b><?php echo $j['nombre']; ?></b></h2>
                     </div>
                     <div class="col-md-3">
-                        <h3>Categoria:</h3>
-                        <label><?php echo $j['categoria']; ?></label>
+                        <h3><b>Categoria: </b><?php echo $j['categoria']; ?></h3>
                     </div>
                     <div class="col-md-offset-2 col-md-3">
                         <a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$j['id']); ?>">Detalle</a>
@@ -68,6 +68,7 @@
                 </div>
                 <?php } ?>
             </div>
+        </div>
         </div>
     </div>
     <div></div>

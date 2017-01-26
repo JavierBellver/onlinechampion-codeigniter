@@ -21,7 +21,7 @@
                     <ul class="nav navbar-nav">
                         <li role="presentation"><a href="<?php echo site_url('Backoffice/Juegos'); ?>">Juegos </a></li>
                         <li role="presentation"><a href="<?php echo site_url('Backoffice/Torneos'); ?>">Torneos </a></li>
-                        <li role="presentation"><a href="<?php echo site_url('Backoffice/Ligas'); ?>">Ligas </a></li>
+                        <li class="active" role="presentation"><a href="<?php echo site_url('Backoffice/Ligas'); ?>">Ligas </a></li>
                     </ul>
                 </div>
             </div>

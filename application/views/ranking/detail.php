@@ -7,10 +7,10 @@
     <title>Detalle de juego</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../../../assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="../../../assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
 </head>
 
 <body class="Login">
@@ -50,36 +50,23 @@
         </div>
     </nav>
     <div class="container ">
-        <div>
-            <div class="container well margin">
-                <div class="row">
-                    <h1>NumRanking: <?php echo $ranking['numRanking']; ?></h1>
+        <div class="container well margin">
+            <h1><b>NumRanking: <?php echo $ranking['numRanking']; ?></b></h1>
+            <h2><b>Usuarios en ranking</b></h2>
+            <?php foreach($usuarios as $u){ ?>
+                    <div class="well">
+                        <div class="row">
+                            <h3><b>Usuario: </b><?php echo $u->login; ?></h3>
+                            <h3><b>Puntos: </b><?php echo $u->puntos; ?></h3>
+                            <h3><b>Partidas jugadas: </b><?php echo $u->jugadas; ?></h3>
+                            <h3><b>Partidas ganadas: </b><?php echo $u->ganadas; ?></h3>
+                        </div>
+                    </div>
                 </div>
-                <h1>Usuarios en ranking</h1>
-                <?php foreach($usuarios as $u){ ?>
-                    <div class="row">
-                        <h3>Usuario </h3>
-                        <p><?php echo $u->login; ?></p>
-                    </div class="row">
-                    <div class="row">
-                        <h4>Puntos </h4>
-                        <p><?php echo $u->puntos; ?></p>
-                    </div>
-                    <div class="row">
-                        <h4>Partidas jugadas: </h4>
-                        <p><?php echo $u->jugadas; ?></p>
-                    </div>
-                    <div class="row">
-                        <h4>Partidas ganadas: </h4>
-                        <p><?php echo $u->ganadas; ?></p>
-                    </div>
                 <?php } ?>
-            </div>
         </div>
     </div>
 </div>
-<div></div>
-<div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

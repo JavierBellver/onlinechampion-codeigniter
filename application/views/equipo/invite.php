@@ -7,13 +7,13 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
 </head>
 
-<body class="login">
+<body class="Login">
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -49,20 +49,20 @@
             </div>
         </div>
     </nav>
-    <div class="container fondo">
+    <div class="container">
         <div class="container well">
-            <h1>Invitar al equipo</h1>
+            <h1><b>Invitar al equipo</b></h1>
             <p><?php echo validation_errors(); ?></p>
             <?php echo form_open('equipo/invite'); ?>
-            <select name="id">
+            <select name="id" class="input-lg">
                 <?php foreach($usuarios as $u){ ?>
                     <?php if($u['id'] != $this->session->id) { ?>
-                        <option value=<?php echo $u['id'] ?>><?php echo $u['login']; ?></option>
+                        <option value=<?php echo $u['id'] ?>><h2><?php echo $u['login']; ?></h2></option>
                     <?php } ?>
                 <?php } ?>
             </select>
             <input name="idEquipo" type="hidden" value="<?php echo $idequipo ?>">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
             <?php echo form_close(); ?>
         </div>
     </div>

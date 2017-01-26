@@ -7,13 +7,13 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../../assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 
-<body class="login">
+<body class="Login">
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -50,18 +50,24 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1 class ="weel">Perfil de <?php echo $usuario['login']?></h1>
-        <div class="row">
-            <h3>Equipo al que pertenece: <?php echo $equipo['nombre']?></h3>
-            <h3>Usuarios que pertenecen al equipo</h3>
-            <?php foreach($usuariosequipo as $u){ ?>
-                <p><?php echo $u['login']?></p>
-            <?php } ?>
+        <h1><b>Perfil de <?php echo $usuario['login']?></b></h1>
+        <div class="well">
+            <div class="row">
+
+                    <h2>Equipo al que pertenece: <?php echo $equipo['nombre']?></h2>
+                    <h2>Usuarios que pertenecen al equipo:</h2>
+                <ul>
+                    <?php foreach($usuariosequipo as $u){ ?>
+
+                        <li><h3><?php echo $u['login']?></h3></li>
+                    <?php } ?>
+                </ul>
+                </div>
+                <div class="row">
+                    <a href="<?php echo site_url('equipo/invite'); ?>" class="btn btn-lg btn-primary">Invitar jugador al equipo</a>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <a href="<?php echo site_url('equipo/invite'); ?>" class="btn btn-primary">Invitar jugador al equipo</a>
-        </div>
-    </div>
 </div>
 <div></div>
 <div></div>

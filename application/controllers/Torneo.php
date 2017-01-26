@@ -13,16 +13,15 @@ class Torneo extends CI_Controller
     function index()
     {
         $data['torneo'] = $this->Torneo_model->get_all_torneo();
+        $validated = array();
 
-        if(isset($this->session->id['id'])) {
-            $validated = array();
+        if(isset($this->session->id)) {
 
             foreach ($this->Torneo_model->get_all_torneo() as $t) {
                 array_push($validated, $this->validate($t['id']));
             }
-            $data['validated'] = $validated;
         }
-
+        $data['validated'] = $validated;
         $this->load->view('torneo/index',$data);
     }
 
@@ -63,7 +62,7 @@ class Torneo extends CI_Controller
 
     function validate($id)
     {
-        $idUsu=$this->session->id['id'];
+        $idUsu=$this->session->id;
         $inscritos=$this->db->get_where('usuariotorneo',array('idTorneo'=>$id))->result_array();
 
         foreach ($inscritos as $row)
@@ -74,7 +73,7 @@ class Torneo extends CI_Controller
     }
 
     function join($id){
-        $idUsu=$this->session->id['id'];
+        $idUsu=$this->session->id;
         $params= array(
             'idTorneo'=>$id,
             'idUsuario'=>$idUsu,
@@ -112,7 +111,7 @@ class Torneo extends CI_Controller
             {   
                 $data['torneo'] = $this->Torneo_model->get_torneo($id);
                 $data['Juegos'] = $this->Juego_model->get_all_juego();
-                $this->load->view('torneo/edit',$data);
+                $this->load->view('Backoffice/Torneo/edit',$data);
             }
         }
         else

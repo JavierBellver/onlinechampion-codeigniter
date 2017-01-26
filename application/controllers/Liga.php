@@ -15,7 +15,7 @@ class Liga extends CI_Controller
     {
         $data['liga'] = $this->Liga_model->get_all_liga();
 
-        if(isset($this->session->id['id'])) {
+        if(isset($this->session->id)) {
             $validated = array();
 
             foreach ($this->Liga_model->get_all_liga() as $l) {
@@ -96,7 +96,7 @@ class Liga extends CI_Controller
                 $data['liga'] = $this->Liga_model->get_liga($id);
                 $data['Juegos'] = $this->Juego_model->get_all_juego();
                 $data['Rankings'] = $this->Ranking_model->get_all_ranking();
-                $this->load->view('liga/edit',$data);
+                $this->load->view('Backoffice/Liga/edit',$data);
             }
         }
         else
@@ -105,7 +105,7 @@ class Liga extends CI_Controller
 
     function validate($id)
     {
-        $idUsu=$this->session->id['id'];
+        $idUsu=$this->session->id;
         $inscritos=$this->db->get_where('usuarioranking',array('idRanking'=>$id))->result_array();
 
         foreach ($inscritos as $row)
@@ -116,7 +116,7 @@ class Liga extends CI_Controller
     }
 
     function join($id){
-        $idUsu=$this->session->id['id'];
+        $idUsu=$this->session->id;
         $params= array(
             'ganadas'=>0,
             'jugadas'=>0,

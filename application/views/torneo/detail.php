@@ -7,10 +7,10 @@
     <title>Detalle de juego</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="/assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="/assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
 </head>
 
 <body class="Login">
@@ -49,39 +49,26 @@
             </div>
         </div>
     </nav>
-    <div class="container fondo">
-        <div>
-                <div class="container well margin">
-                    <div class="row">
+
+    <div class="container">
+            <div class="well">
+                <div class="row">
+                    <h1><b>Detalle de torneo</b></h1>
                         <div class="col-md-4">
-                            <h3>Jugadores admitidos:</h3>
-                            <h1><?php echo $torneo['numjugadores']; ?></h1>
+                            <h3><b>Jugadores admitidos: </b><?php echo $torneo['numjugadores']; ?></h3>
+                            <h1></h1>
+                            <h3><b>Categoria: </b><?php echo $torneo['numtemporadas']; ?></h3>
+                            <h1></h1>
                         </div>
                         <div class="col-md-4">
-                            <h3>Categoria:</h3>
-                            <label><?php echo $torneo['numtemporadas']; ?></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Primer premio:</h3>
-                            <h1><?php echo $torneo['1Premio']; ?></h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Segundo premio:</h3>
-                            <h1><?php echo $torneo['2Premio']; ?></h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Tercer premio:</h3>
-                            <h1><?php echo $torneo['3Premio']; ?></h1>
+                            <h3><b>Primer premio:</b><?php echo $torneo['1Premio']; ?></h3>
+                            <h3><b>Segundo premio:</b><?php echo $torneo['2Premio']; ?></h3>
+                            <h3><b>Tercer premio:</b><?php echo $torneo['3Premio']; ?></h3>
                         </div>
                     </div>
                 </div>
         </div>
+    </div>
     </div>
 </div>
 <div></div>

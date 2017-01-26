@@ -30,6 +30,12 @@ class Backoffice extends CI_Controller
         $this->load->view('Backoffice/Juego/index',$data);
     }
 
+    function Juegodetail($id)
+    {
+        $data['juego'] = $this->Juego_model->get_juego($id);
+        $this->load->view('Backoffice/Juego/detail',$data);
+    }
+
     function Ligas()
     {
         $data['liga']=$this->Liga_model->get_all_liga();
@@ -69,12 +75,8 @@ class Backoffice extends CI_Controller
         }
     }
 
-    /*
-     * Editing a juego
-     */
     function edit($id)
     {
-        // check if the juego exists before trying to edit it
         $juego = $this->Juego_model->get_juego($id);
 
         if(isset($juego['id']))
@@ -107,9 +109,6 @@ class Backoffice extends CI_Controller
             show_error('The juego you are trying to edit does not exist.');
     }
 
-    /*
-     * Deleting juego
-     */
     function remove($id)
     {
         $juego = $this->Juego_model->get_juego($id);

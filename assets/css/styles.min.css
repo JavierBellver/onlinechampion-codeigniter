@@ -234,8 +234,6 @@ body {
 
 body.Login {
   background-image:url(http://gameswallpaperhd.com/wp-content/uploads/2013/12/video-game-character-wallpaperheart-attack-wallpapers-updated-video-game-collage-wallpaper-zeafygtr.jpg);
-}
-
-div#register-image {
-  background-image:url(;
+  background-size:cover;
+  background-repeat: no-repeat;
 }

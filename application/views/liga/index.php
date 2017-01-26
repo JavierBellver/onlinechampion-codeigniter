@@ -7,10 +7,10 @@
 	<title>Login</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-	<link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-	<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
 </head>
 
 <body class="Login">
@@ -50,29 +50,33 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container fondo">
-		<h1>Ligas en activo</h1>
-	</div>
-	<div class="container">
+
+    <div class="container fondo">
+        <h1>Listado de ligas</h1>
         <?php $i =0;?>
-		<?php foreach($liga as $l){ ?>
-		<div class="row fondo">
-			<div class="col-md-3">
-				<h1><?php echo $l['nombre']; ?></h1>
-				<h4>Jugadores: <label for="N.Jugadores"><?php echo $l['numjugadores']; ?></label></h4>
-				<h4>Plazas: <label for="N.Plazas"><?php echo $l['numplazasdisp']; ?> </label></h4>
-				<h4>Temporadas: <label for="N.Temporadas"><?php echo $l['numtemporadas']; ?> </label></h4>
-				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$l['idJuego']); ?>">Enlace al juego</a></h4>
-				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('ranking/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
-                <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
-                <h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('liga/join/'.$l['idRanking']); ?>">Inscribirse</a></h4>
+            <?php foreach($liga as $l){ ?>
+        <div class="well">
+            <div class="row">
+                    <div class="col-md-5">
+                        <h1><b><?php echo $l['nombre']; ?></b></h1>
+                        <h3><b>Jugadores: </b><?php echo $l['numjugadores']; ?></h3>
+                        <h3><b>Plazas: </b><?php echo $l['numplazasdisp']; ?></h3>
+                        <h3><b>Temporadas: </b><?php echo $l['numtemporadas']; ?></h3>
+                    </div>
+                        <div class="row">
+                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$l['idJuego']); ?>">Enlace al juego</a>
+                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('ranking/read/'.$l['idRanking']); ?>">Enlace a ranking</a>
+                            <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
+                                <a class="btn btn-primary btn-lg" href="<?php echo site_url('liga/join/'.$l['idRanking']); ?>">Inscribirse</a>
+                            <?php } ?>
+
+                            <? $i++ ?>
+                        </div>
+                    </div>
+                </div>
                 <?php } ?>
-                <? $i++ ?>
-			</div>
-		</div>
-		<?php } ?>
-	</div>
-</div>
+            </div>
+        </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

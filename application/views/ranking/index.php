@@ -7,14 +7,13 @@
 	<title>Rankings</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-	<link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-	<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Dark.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Registration-Form-with-Photo.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
 </head>
 
 <body class="Login">
-<div></div>
 <div>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -34,7 +33,6 @@
 					<li ><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
 					<li><a href="<?php echo site_url('liga'); ?>">Ligas</a></li>
 					<li class="active"><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
-					<li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
 					<?php if($this->session->has_userdata('usuario')) {?>
 						<li><a href="<?php echo site_url('equipo'); ?>">Equipos</a></li>
 						<li><a href="<?php echo site_url('usuario/read/'.$this->session->id); ?>">Mi perfil</a></li>
@@ -52,31 +50,23 @@
 		</div>
 	</nav>
 	<div class="container fondo">
-		<h1 class ="weel">Listado de rankings</h1>
-		<div class="row">
+        <h1><b>Listado de rankings</b></h1>
 			<?php foreach($ranking as $r){ ?>
-				<div class="container well">
-					<div class="row">
+                <div class="well">
+                    <div class="row">
 						<div class="col-md-4">
 							<h3>Número de temporada</h3>
 							<h1><?php echo $r['numRanking']; ?></h1>
 						</div>
-						<div class="col-md-4">
-							<a class="btn btn-primary" href="<?php echo site_url('juego/read/'.$r['juego']); ?>">Enlace al juego</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<a class="btn btn-primary" href="<?php echo site_url('ranking/read/'.$r['id']); ?>">Detalles del ranking</a>
+                        <div class="row">
+							<a class="btn btn-lg btn-primary" href="<?php echo site_url('juego/read/'.$r['juego']); ?>">Enlace al juego</a>
+							<a class="btn btn-lg btn-primary" href="<?php echo site_url('ranking/read/'.$r['id']); ?>">Detalles del ranking</a>
 						</div>
 					</div>
 				</div>
 			<?php } ?>
 		</div>
 	</div>
-</div>
-<div></div>
-<div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

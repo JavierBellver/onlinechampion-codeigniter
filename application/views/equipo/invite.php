@@ -50,16 +50,20 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1 class ="weel">Perfil de <?php echo $usuario['login']?></h1>
-        <div class="row">
-            <h3>Equipo al que pertenece: <?php echo $equipo['nombre']?></h3>
-            <h3>Usuarios que pertenecen al equipo</h3>
-            <?php foreach($usuariosequipo as $u){ ?>
-                <p><?php echo $u['login']?></p>
-            <?php } ?>
-        </div>
-        <div class="row">
-            <a href="<?php echo site_url('equipo/invite'); ?>" class="btn btn-primary">Invitar jugador al equipo</a>
+        <div class="container well">
+            <h1>Invitar al equipo</h1>
+            <p><?php echo validation_errors(); ?></p>
+            <?php echo form_open('equipo/invite'); ?>
+            <select name="id">
+                <?php foreach($usuarios as $u){ ?>
+                    <?php if($u['id'] != $this->session->id) { ?>
+                        <option value=<?php echo $u['id'] ?>><?php echo $u['login']; ?></option>
+                    <?php } ?>
+                <?php } ?>
+            </select>
+            <input name="idEquipo" type="hidden" value="<?php echo $idequipo ?>">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ class Juego extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Juego_model');
+        $this->load->model('Ranking_model');
         $this->load->library('session');
     } 
 
@@ -43,6 +44,11 @@ class Juego extends CI_Controller
             );
             
             $juego_id = $this->Juego_model->add_juego($params);
+            $rankingdata = array(
+                'numRanking' => 6,
+                'juego' => $juego_id,
+            );
+            $ranking_id = $this->Ranking_model->add_ranking($rankingdata);
             $data['Juegos'] = $this->Juego_model->get_all_juego();
             $this->load->view('Backoffice/Juego/index',$data);
         }

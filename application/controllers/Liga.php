@@ -117,6 +117,7 @@ class Liga extends CI_Controller
 
     function join($id){
         $idUsu=$this->session->id['id'];
+
         $params= array(
             'ganadas'=>0,
             'jugadas'=>0,

@@ -31,8 +31,9 @@
 				<ul class="nav navbar-nav">
 					<li><a href="<?php echo site_url('home'); ?>">Home</a></li>
 					<li><a href="<?php echo site_url('juego'); ?>">Juegos</a></li>
-					<li class="active"><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
+					<li ><a href="<?php echo site_url('torneo'); ?>">Torneos</a></li>
 					<li><a href="<?php echo site_url('liga'); ?>">Ligas</a></li>
+					<li class="active"><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
 					<li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
 					<?php if($this->session->has_userdata('usuario')) {?>
 						<li><a href="<?php echo site_url('equipo'); ?>">Equipos</a></li>

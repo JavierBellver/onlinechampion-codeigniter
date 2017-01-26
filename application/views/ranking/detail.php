@@ -56,7 +56,7 @@
             <?php foreach($usuarios as $u){ ?>
                     <div class="well">
                         <div class="row">
-                            <h3><b>Usuario: </b><?php echo $u->login; ?></h3>
+                            <h3><b>Usuario: </b><a href="<?php echo site_url('usuario/read/'.$u->id); ?>"><?php echo $u->login; ?></a></h3>
                             <h3><b>Puntos: </b><?php echo $u->puntos; ?></h3>
                             <h3><b>Partidas jugadas: </b><?php echo $u->jugadas; ?></h3>
                             <h3><b>Partidas ganadas: </b><?php echo $u->ganadas; ?></h3>

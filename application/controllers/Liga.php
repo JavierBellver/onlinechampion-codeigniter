@@ -133,7 +133,7 @@ class Liga extends CI_Controller
             );
             $this->db->insert('usuarioranking',$params);
             $this->Liga_model->update_liga($liga['id'],$updateParams);
-            redirect('torneo/index');
+            redirect('liga/index');
         }
         else
         {

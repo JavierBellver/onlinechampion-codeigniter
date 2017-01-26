@@ -8,7 +8,6 @@ class Ranking extends CI_Controller
         $this->load->model('Ranking_model');
         $this->load->model('Juego_model');
         $this->load->library('session');
-
     } 
 
     function index()
@@ -40,26 +39,19 @@ class Ranking extends CI_Controller
 				'numRanking' => $this->input->post('numRanking'),
 				'juego' => $_POST['Juego'],
             );
-            
             $ranking_id = $this->Ranking_model->add_ranking($params);
             redirect('ranking/index');
         }
         else
         {
-
 			$this->load->model('Juego_model');
 			$data['Juegos'] = $this->Juego_model->get_all_juego();
-                
             $this->load->view('ranking/add',$data);
         }
     }  
 
-    /*
-     * Editing a ranking
-     */
     function edit($id)
-    {   
-        // check if the ranking exists before trying to edit it
+    {
         $ranking = $this->Ranking_model->get_ranking($id);
         
         if(isset($ranking['id']))
@@ -73,10 +65,8 @@ class Ranking extends CI_Controller
             {   
                 $params = array(
 					'numRanking' => $this->input->post('numRanking'),
-
 					'juego' => $this->input->post('juego'),
                 );
-
                 $this->Ranking_model->update_ranking($id,$params);            
                 redirect('ranking/index');
             }
@@ -94,14 +84,10 @@ class Ranking extends CI_Controller
             show_error('The ranking you are trying to edit does not exist.');
     } 
 
-    /*
-     * Deleting ranking
-     */
     function remove($id)
     {
         $ranking = $this->Ranking_model->get_ranking($id);
 
-        // check if the ranking exists before trying to delete it
         if(isset($ranking['id']))
         {
             $this->Ranking_model->delete_ranking($id);
@@ -110,5 +96,4 @@ class Ranking extends CI_Controller
         else
             show_error('The ranking you are trying to delete does not exist.');
     }
-    
 }

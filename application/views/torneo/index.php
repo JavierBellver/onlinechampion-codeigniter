@@ -49,7 +49,9 @@
 	<div class="container fondo">
 		<h1 class ="weel">Listado de torneos</h1>
 		<div class="row">
+            <?php $i =0;?>
 			<?php foreach($torneo as $t){ ?>
+
 				<div class="container well">
 					<div class="row">
 						<div class="col-md-4">
@@ -71,6 +73,14 @@
 							<a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$t['id']); ?>">Detalle</a>
 						</div>
 					</div>
+                    <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-3">
+                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/join/'.$t['id']); ?>">Inscribirse</a>
+                        </div>
+                        <?php } ?>
+                    </div>
+                    <?php $i++ ?>
 				</div>
 			<?php } ?>
 		</div>

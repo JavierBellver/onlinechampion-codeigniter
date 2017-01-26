@@ -40,6 +40,7 @@ class Usuario extends CI_Controller
             if(isset($usuario_id))
             {
                 $data = array(
+                    'id'=>$usuario_id,
                     'usuario' => $this->input->post('login'),
                     'password' => $this->input->post('password'),
                     'loggedIn' => TRUE

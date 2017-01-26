@@ -21,6 +21,15 @@ class Torneo extends CI_Controller
     {
         $data['torneo'] = $this->Torneo_model->get_all_torneo();
 
+        if(isset($this->session->id['id'])) {
+            $validated = array();
+
+            foreach ($this->Torneo_model->get_all_torneo() as $t) {
+                array_push($validated, $this->validate($t['id']));
+            }
+            $data['validated'] = $validated;
+        }
+
         $this->load->view('torneo/index',$data);
     }
 
@@ -60,8 +69,28 @@ class Torneo extends CI_Controller
             $data['Juegos'] = $this->Juego_model->get_all_juego();
             $this->load->view('Backoffice/Torneo/add',$data);
         }
-    }  
+    }
 
+    function validate($id)
+    {
+        $idUsu=$this->session->id['id'];
+        $inscritos=$this->db->get_where('usuariotorneo',array('idTorneo'=>$id))->result_array();
+
+        foreach ($inscritos as $row)
+        {
+            if($row['idUsuario']==$idUsu) return 1;
+        }
+        return 0;
+    }
+
+    function join($id){
+        $idUsu=$this->session->id['id'];
+        $params= array(
+            'idTorneo'=>$id,
+            'idUsuario'=>$idUsu,
+        );
+        $this->db->insert('usuarioTorneo',$params);
+    }
     /*
      * Editing a torneo
      */

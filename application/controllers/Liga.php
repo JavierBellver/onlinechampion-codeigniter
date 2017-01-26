@@ -21,6 +21,15 @@ class Liga extends CI_Controller
     function index()
     {
         $data['liga'] = $this->Liga_model->get_all_liga();
+
+        if(isset($this->session->id['id'])) {
+            $validated = array();
+
+            foreach ($this->Liga_model->get_all_liga() as $l) {
+                array_push($validated, $this->validate($l['idRanking']));
+            }
+            $data['validated'] = $validated;
+        }
         $this->load->view('liga/index',$data);
     }
 
@@ -59,7 +68,6 @@ class Liga extends CI_Controller
             $this->load->view('Backoffice/liga/add',$data);
         }
     }
-
     /*
      * Editing a liga
      */
@@ -101,8 +109,31 @@ class Liga extends CI_Controller
         }
         else
             show_error('The liga you are trying to edit does not exist.');
-    } 
+    }
 
+    function validate($id)
+    {
+        $idUsu=$this->session->id['id'];
+        $inscritos=$this->db->get_where('usuarioranking',array('idRanking'=>$id))->result_array();
+
+        foreach ($inscritos as $row)
+        {
+            if($row['idUsuario']==$idUsu) return 1;
+        }
+        return 0;
+    }
+
+    function join($id){
+        $idUsu=$this->session->id['id'];
+        $params= array(
+            'ganadas'=>0,
+            'jugadas'=>0,
+            'puntos'=>0,
+            'idRanking'=>$id,
+            'idUsuario'=>$idUsu,
+        );
+        $this->db->insert('usuarioranking',$params);
+    }
     /*
      * Deleting liga
      */

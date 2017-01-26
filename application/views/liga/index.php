@@ -50,6 +50,7 @@
 		<h1>Ligas en activo</h1>
 	</div>
 	<div class="container">
+        <?php $i =0;?>
 		<?php foreach($liga as $l){ ?>
 		<div class="row fondo">
 			<div class="col-md-3">
@@ -58,12 +59,13 @@
 				<h4>Plazas: <label for="N.Plazas"><?php echo $l['numplazasdisp']; ?> </label></h4>
 				<h4>Temporadas: <label for="N.Temporadas"><?php echo $l['numtemporadas']; ?> </label></h4>
 				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$l['idJuego']); ?>">Enlace al juego</a></h4>
-				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
-				<header></header>
+				<h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('ranking/read/'.$l['idRanking']); ?>">Enlace a ranking</a></h4>
+                <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
+                <h4><a class="btn btn-primary btn-lg" href="<?php echo site_url('liga/join/'.$l['idRanking']); ?>">Inscribirse</a></h4>
+                <?php } ?>
+                <? $i++ ?>
+
 			</div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
 		</div>
 		<?php } ?>
 	</div>

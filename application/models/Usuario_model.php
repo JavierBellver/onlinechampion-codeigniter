@@ -31,7 +31,11 @@ class Usuario_model extends CI_Model
     {
         return $this->db->get_where('usuario',$params)->row_array();
     }
-    
+
+    function get_usuarios_by_equipo($params)
+    {
+        return $this->db->get_where('usuario',$params)->result_array();
+    }
     /*
      * function to add new usuario
      */

@@ -35,7 +35,6 @@
                     <li><a href="<?php echo site_url('ranking'); ?>">Rankings</a></li>
                     <?php if($this->session->has_userdata('usuario')) {?>
                         <li><a href="<?php echo site_url('equipo'); ?>">Equipos</a></li>
-                        <li><a href="<?php echo site_url('usuario/read/'.$this->session->id); ?>">Mi perfil</a></li>
                     <?php } ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -50,15 +49,16 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1 class ="weel">Online champion</h1>
-        <div class="row">
-            <h3>¿Que es online champion?</h3>
-            <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
-            <h3>¿Como puedo ganar puntos de la página?</h3>
-            <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
-            <h3>¿Necesito estar registrado en la página para acceder a estos premios?</h3>
-            <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
-        </div>
+        <h1 class ="weel">Crear equipo</h1>
+        <p><?php echo validation_errors(); ?></p>
+        <?php echo form_open('equipo/add'); ?>
+            <div class="form-group">
+                <input class="form-control" type="text" name="nombre" placeholder="Nombre del equipo">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Crear equipo</button>
+            </div>
+        <?php echo form_close(); ?>
     </div>
 </div>
 <div></div>

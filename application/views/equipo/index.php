@@ -50,14 +50,19 @@
         </div>
     </nav>
     <div class="container fondo">
-        <h1 class ="weel">Online champion</h1>
-        <div class="row">
-            <h3>¿Que es online champion?</h3>
-            <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
-            <h3>¿Como puedo ganar puntos de la página?</h3>
-            <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
-            <h3>¿Necesito estar registrado en la página para acceder a estos premios?</h3>
-            <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
+        <div class="container well">
+            <h1>Lista de equipos</h1>
+            <div class="row">
+                <a class="btn btn-primary" href="<?php echo site_url('equipo/add'); ?>">Crea tu propio equipo</a>
+            </div>
+            <?php foreach($equipo as $e){ ?>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Nombre del equipo</h3>
+                            <h1><?php echo $e['nombre']; ?></h1>
+                        </div>
+                    </div>
+            <?php } ?>
         </div>
     </div>
 </div>

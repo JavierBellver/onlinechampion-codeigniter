@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body class="login">
+<body class="Login">
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -49,25 +49,25 @@
             </div>
         </div>
     </nav>
-    <div class="container fondo">
-        <div class="container well">
+    <div class="container">
+        <div class="container fondo">
             <h1>Lista de equipos</h1>
-            <div class="row">
-                <a class="btn btn-primary" href="<?php echo site_url('equipo/add'); ?>">Crea tu propio equipo</a>
-            </div>
+
             <?php foreach($equipo as $e){ ?>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Nombre del equipo</h3>
-                            <h1><?php echo $e['nombre']; ?></h1>
-                        </div>
+
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3><b>Nombre del equipo: </b><?php echo $e['nombre']; ?></h3>
                     </div>
+                </div>
+            </div>
+
             <?php } ?>
+        <a class="btn btn-lg btn-primary" href="<?php echo site_url('equipo/add'); ?>">Crea tu propio equipo</a>
         </div>
     </div>
 </div>
-<div></div>
-<div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

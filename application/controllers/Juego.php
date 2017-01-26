@@ -95,7 +95,7 @@ class Juego extends CI_Controller
             {   
                 $data['juego'] = $this->Juego_model->get_juego($id);
     
-                $this->load->view('juego/edit',$data);
+                $this->load->view('Backoffice/Juego/edit',$data);
             }
         }
         else

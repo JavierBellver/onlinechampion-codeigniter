@@ -51,42 +51,33 @@
 		</div>
 	</nav>
 	<div class="container fondo">
-		<h1 class ="weel">Listado de torneos</h1>
-		<div class="row">
-            <?php $i =0;?>
-			<?php foreach($torneo as $t){ ?>
 
-				<div class="container well">
-					<div class="row">
-						<div class="col-md-4">
-							<h3>Jugadores admitidos:</h3>
-							<h1><?php echo $t['numjugadores']; ?></h1>
-						</div>
-						<div class="col-md-4">
-							<h3>Categoria:</h3>
-							<label><?php echo $t['numtemporadas']; ?></label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-offset-2 col-md-3">
-							<a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$t['juego']); ?>">Enlace al juego</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-offset-2 col-md-3">
-							<a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$t['id']); ?>">Detalle</a>
-						</div>
-					</div>
-                    <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
+        <div class="container fondo">
+            <h1><b>Listado de Torneos</b></h1>
+            <?php $i =0;?>
+            <?php foreach($torneo as $t){ ?>
+                <div class="well">
                     <div class="row">
-                        <div class="col-md-offset-2 col-md-3">
-                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/join/'.$t['id']); ?>">Inscribirse</a>
+                        <div class="col-md-4">
+                            <h3><b>Jugadores admitidos: </b><?php echo $t['numjugadores']; ?></h3>
+                            <h3><b>Categoria: </b><?php echo $t['numtemporadas']; ?></h3>
+                        </div>
+                        <div class="row">
+                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$t['juego']); ?>">Enlace al juego</a>
+                            <a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/read/'.$t['id']); ?>">Detalle</a>
+                            <?php if($this->session->has_userdata('usuario') && !$validated[$i]){?>
+                                <a class="btn btn-primary btn-lg" href="<?php echo site_url('torneo/join/'.$t['id']); ?>">Inscribirse</a>
+                            <?php } ?>
+                            <?php $i++ ?>
                         </div>
                         <?php } ?>
                     </div>
-                    <?php $i++ ?>
-				</div>
-			<?php } ?>
+                    </div>
+                </div>
+        </div>
+
+
+
 		</div>
 	</div>
 </div>

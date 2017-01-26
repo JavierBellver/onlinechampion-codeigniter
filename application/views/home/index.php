@@ -7,13 +7,13 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../../assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 
-<body class="login">
+<body class="Login">
 <div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -49,15 +49,22 @@
             </div>
         </div>
     </nav>
-    <div class="container fondo">
-        <h1 class ="weel">Online champion</h1>
+    <div class="container fondo well">
+        <h1><b>Online champion</b></h1>
         <div class="row">
-            <h3>¿Que es online champion?</h3>
-            <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
-            <h3>¿Como puedo ganar puntos de la página?</h3>
-            <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
-            <h3>¿Necesito estar registrado en la página para acceder a estos premios?</h3>
-            <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
+            <div>
+                <h3><b>¿Que es online champion?</b></h3>
+                <p>Online champion es una página donde podrás entrar en partidas de diferentes juegos online y ganar puntos que podrás canjear por puntos. Mira nuestros torneos disponibles y cuando estés listo registrate para empezar con la diversión.</p>
+            </div>
+            <div>
+                <h3><b>¿Como puedo ganar puntos de la página?</b></h3>
+                <p>Apuntate a torneos que estén disponibles y obten una buena posición en estos para ganar premios</p>
+            </div>
+
+            <div>
+                <h3><b>¿Necesito estar registrado en la página para acceder a estos premios?</b></h3>
+                <p>Si, tendrás que registrate para poder competir en torneos o ligas</p>
+            </div>
         </div>
     </div>
 </div>

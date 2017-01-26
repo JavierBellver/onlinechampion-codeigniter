@@ -12,7 +12,6 @@ class Ranking extends CI_Controller
         $this->load->model('Ranking_model');
         $this->load->model('Juego_model');
         $this->load->library('session');
-
     } 
 
     /*

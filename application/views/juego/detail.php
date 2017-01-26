@@ -7,10 +7,10 @@
     <title>Detalle de juego</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../../../assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="../../../assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../../assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../../assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 
 <body class="Login">
@@ -53,17 +53,15 @@
         <div>
                 <div class="container well margin">
                     <div>
-                        <h1><?php echo $juego['nombre']; ?></h1>
+                        <h1><b><?php echo $juego['nombre']; ?></b></h1>
                     </div>
 
                     <div>
-
-                        <h3><?php echo $juego['categoria']; ?></h3>
+                        <h2><b>Categoria: </b><?php echo $juego['categoria']; ?></h2>
                     </div>
 
                     <div>
-                        <h3>Descripción: </h3>
-                        <p><?php echo $juego['descripcion']; ?></p>
+                        <h2><b>Descripción: </b><h4><?php echo $juego['descripcion']; ?></h2>
                     </div>
                 </div>
         </div>

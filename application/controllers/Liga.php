@@ -117,15 +117,28 @@ class Liga extends CI_Controller
 
     function join($id){
         $idUsu=$this->session->id['id'];
-
-        $params= array(
-            'ganadas'=>0,
-            'jugadas'=>0,
-            'puntos'=>0,
-            'idRanking'=>$id,
-            'idUsuario'=>$idUsu,
+        $liga = $this->Liga_model->get_liga_by_ranking($id);
+        $updateParams = array(
+            'numjugadores' => $liga['numjugadores']+1,
+            'numplazasdisp' => $liga['numplazasdisp']-1,
         );
-        $this->db->insert('usuarioranking',$params);
+
+        if(($liga['numplazasdisp'] - 1) >= 0)
+        {
+            $params= array(
+                'ganadas'=>0,
+                'jugadas'=>0,
+                'puntos'=>0,
+                'idRanking'=>$id,
+                'idUsuario'=>$idUsu,
+            );
+            $this->db->insert('usuarioranking',$params);
+            $this->Liga_model->update_liga($liga['id'],$updateParams);
+        }
+        else
+        {
+            redirect('liga/index');
+        }
     }
 
     function remove($id)

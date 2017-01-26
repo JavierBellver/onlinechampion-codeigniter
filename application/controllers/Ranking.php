@@ -23,9 +23,6 @@ class Ranking extends CI_Controller
         $this->load->view('ranking/detail',$data);
     }
 
-    /*
-     * Adding a new ranking
-     */
     function add()
     {   
         $this->load->library('form_validation');

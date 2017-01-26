@@ -12,6 +12,10 @@ class Liga_model extends CI_Model
         return $this->db->get_where('liga',array('id'=>$id))->row_array();
     }
 
+    function get_liga_by_ranking($idRanking)
+    {
+        return $this->db->get_where('liga',array('idRanking'=>$idRanking))->row_array();
+    }
     function get_all_liga()
     {
         return $this->db->get('liga')->result_array();

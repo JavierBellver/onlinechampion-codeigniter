@@ -74,11 +74,24 @@ class Torneo extends CI_Controller
 
     function join($id){
         $idUsu=$this->session->id;
-        $params= array(
-            'idTorneo'=>$id,
-            'idUsuario'=>$idUsu,
+        $torneo = $this->Torneo_model->get_torneo($id);
+        $updateParams = array(
+            'numjugadores' => $torneo['numjugadores']-1,
         );
-        $this->db->insert('usuarioTorneo',$params);
+        if(($torneo['numjugadores'] - 1) >= 0)
+        {
+            $params= array(
+                'idTorneo'=>$id,
+                'idUsuario'=>$idUsu,
+            );
+            $this->db->insert('usuarioTorneo',$params);
+            $this->Torneo_model->update_torneo($id,$updateParams);
+            redirect('torneo/index');
+        }
+        else
+        {
+            redirect('torneo/index');
+        }
     }
 
     function edit($id)

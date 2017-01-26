@@ -28,21 +28,33 @@ class Equipo extends CI_Controller
             $params = array(
                 'nombre' => $this->input->post('nombre'),
             );
-            $equipo_id = $this->Equipo_model->add_equipo($params);
             if($this->session->has_userdata('usuario'))
             {
                 $id = $this->session->userdata('id');
-                $params = array(
-                    'idEquipo' =>  $equipo_id,
-                );
-                if($this->Usuario_model->update_usuario($id,$params) == "usuario updated successfully")
+                $usuario = $this->Usuario_model->get_usuario($id);
+                if(isset($usuario) && empty($usuario['idEquipo']))
                 {
-                    redirect('equipo/index');
+                    $equipo_id = $this->Equipo_model->add_equipo($params);
+                    $params = array(
+                        'idEquipo' =>  $equipo_id,
+                    );
+                    if($this->Usuario_model->update_usuario($id,$params) == "usuario updated successfully")
+                    {
+                        redirect('equipo/index');
+                    }
+                    else
+                    {
+                        redirect('home/index');
+                    }
                 }
                 else
                 {
                     redirect('home/index');
                 }
+            }
+            else
+            {
+                $this->load->view('home/index');
             }
         }
         else

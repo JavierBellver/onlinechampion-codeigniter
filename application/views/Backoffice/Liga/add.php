@@ -37,16 +37,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Ranking: </label>
-                    <div class="col-md-5">
-                        <select name="Ranking">
-                            <?php foreach($Rankings as $r){ ?>
-                                <option value=<?php echo $r['id'] ?>><?php echo $r['id']; ?></option>
-                            <?php } ?></select>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="control-label col-sm-2" for="pwd">Jugadores : </label>
                     <div class="col-md-5">
                         <input type="number" name="numjugadores" value="<?php echo $this->input->post('numjugadores'); ?>" />

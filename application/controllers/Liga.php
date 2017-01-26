@@ -37,14 +37,19 @@ class Liga extends CI_Controller
 
 		
 		if($this->form_validation->run())     
-        {   
+        {
+            $rankingId = $this->Ranking_model->add_ranking(array(
+                'numRanking' => $this->input->post('numtemporadas'),
+                'juego' => $_POST['Juego'],
+            ));
+
             $params = array(
 				'numjugadores' => $this->input->post('numjugadores'),
 				'numplazasdisp' => $this->input->post('numplazasdisp'),
 				'numtemporadas' => $this->input->post('numtemporadas'),
                 'nombre' => $this->input->post('nombre'),
                 'idJuego' => $_POST['Juego'],
-                'idRanking' => $_POST['Ranking'],
+                'idRanking' => $rankingId,
             );
             $liga_id = $this->Liga_model->add_liga($params);
             $data['liga'] = $this->Liga_model->get_all_liga();

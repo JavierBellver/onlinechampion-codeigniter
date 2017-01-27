@@ -52,13 +52,12 @@
     <div class="container fondo">
         <h1><b>Perfil de <?php echo $usuario['login']?></b></h1>
         <div class="well">
+            <?php if(isset($equipo['nombre'])) { ?>
             <div class="row">
-
                     <h2>Equipo al que pertenece: <?php echo $equipo['nombre']?></h2>
                     <h2>Usuarios que pertenecen al equipo:</h2>
                 <ul>
                     <?php foreach($usuariosequipo as $u){ ?>
-
                         <li><h3><?php echo $u['login']?></h3></li>
                     <?php } ?>
                 </ul>
@@ -66,6 +65,7 @@
                 <div class="row">
                     <a href="<?php echo site_url('equipo/invite'); ?>" class="btn btn-lg btn-primary">Invitar jugador al equipo</a>
                 </div>
+            <?php } ?>
             </div>
         </div>
 </div>

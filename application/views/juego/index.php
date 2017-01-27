@@ -66,8 +66,8 @@
                         <a class="btn btn-primary btn-lg" href="<?php echo site_url('juego/read/'.$j['id']); ?>">Detalle</a>
                     </div>
                 </div>
-                <?php } ?>
             </div>
+                <?php } ?>
         </div>
         </div>
     </div>

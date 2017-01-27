@@ -70,9 +70,9 @@
                             <?php } ?>
                             <?php $i++ ?>
                         </div>
+					</div>
+				</div>
                         <?php } ?>
-                    </div>
-                    </div>
                 </div>
         </div>
 
